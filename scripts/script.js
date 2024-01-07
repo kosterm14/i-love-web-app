@@ -1,96 +1,288 @@
+var controller = new ScrollMagic.Controller();
+
+var horizontalSlide = new TimelineMax()
+    .to(".timeline", 1, {x: "-20%"})
+    .to(".timeline", 1, {x: "-40%"})
+    .to(".timeline", 1, {x: "-60%"})
+    .to(".timeline", 1, {x: "-80%"})
+
+new ScrollMagic.Scene({
+    triggerElement: ".timeline-container",
+    triggerHook: 0.2,
+    duration: "200%"
+})
+.setPin(".timeline-container")
+.setTween(horizontalSlide)
+.addTo(controller);
+
+ScrollTrigger.defaults({
+    markers: true,
+    scrub: 1,
+});
+
+// let tl = gsap.timeline({
+//     scrollTrigger: {
+//         markers: false,
+//     }
+// });
+
+// tl.to("#l0", { y: -250 })
+//     .to("#l0-2", { y: -200 })
+//     .to("#l1", { y: -175 })
+//     .to("#l2", { y: -150 })
+//     .to("#l3", { y: -125 })
+//     .to("#l4", { y: -100 })
+//     .to("#l5", { y: -75 })
+//     .to("#l6", { y: -50 });
+
 gsap.to("#l0", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -250,
+    y: 300,
 });
 
 gsap.to("#l0-2", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -200,
+    y: 175,
 });
 
 gsap.to("#l1", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -175,
+    y: -225,
 });
 
 gsap.to("#l2", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -150,
+    y: 150,
 });
 
 gsap.to("#l3", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -125,
+    y: -150,
 });
 
 gsap.to("#l4", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -100,
+    y: 150,
 });
 
 gsap.to("#l5", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -75,
+    y: 0,
 });
 
 gsap.to("#l6", {
     scrollTrigger: {
-        scrub: true,
+        markers: false,
     },
-    y: -50,
+    y: 200,
 });
 
-gsap.to(".h2", {
+gsap.to(".title-nld-bgRed", {
     scrollTrigger: {
-        trigger: ".h2",
+        trigger: ".title-nld-bgRed",
         toggleActions: "restart pause reverse pause",
         start: "top 75%",
-
-        scrub: true,
-        // markers: true,
+        end: "top 30%",
+        id: "header",
     },
-    x: '40%',
+    x: '50%',
+    opacity: 1,
 });
 
-// gsap.from("#l0", {
-//     y: 50,
-//     duration: 1,
-// });
-// gsap.from("#l1", {
-//     y: 100,
-//     duration: 1,
-// });
-// gsap.from("#l2", {
-//     y: 150,
-//     duration: 1,
-// });
-// gsap.from("#l3", {
-//     y: 200,
-//     duration: 1,
-// });
-// gsap.from("#l4", {
-//     y: 250,
-//     duration: 1,
-// });
-// gsap.from("#l5", {
-//     y: 300,
-//     duration: 1,
-// });
-// gsap.from("#l6", {
-//     y: 350,
-//     duration: 1,
-// });
+gsap.to(".text1-nld-bgRed", {
+    scrollTrigger: {
+        trigger: ".text1-nld-bgRed",
+        toggleActions: "restart pause reverse pause",
+        start: "top 75%",
+        end: "+=400",
+        id: "text",
+    },
+    x: '40%',
+    opacity: 1,
+});
+
+gsap.to(".nldessysimg", {
+    scrollTrigger: {
+        trigger: ".nldessysimg",
+        toggleActions: "restart pause reverse pause",
+        start: "top 75%",
+        end: "+=300",
+        id: "img",
+    },
+    x: '-50%',
+    opacity: 1,
+});
+
+gsap.to(".line1", {
+    scrollTrigger: {
+        trigger: ".nldessysimg",
+        toggleActions: "restart pause reverse pause",
+        start: "top 70%",
+        end: "+=800",
+        id: "line1",
+    },
+    attr: {
+        "stroke-dasharray": 1000,
+        "stroke-dashoffset": 0
+    },
+});
+
+gsap.to(".line2", {
+    scrollTrigger: {
+        trigger: ".nldessysimg",
+        toggleActions: "restart pause reverse pause",
+        start: "top 50%",
+        end: "+=600",
+        id: "line2",
+    },
+    attr: {
+        "stroke-dasharray": 1000,
+        "stroke-dashoffset": 0
+    },
+});
+
+gsap.to(".text2-nld", {
+    scrollTrigger: {
+        trigger: ".text2-nld",
+        toggleActions: "restart pause reverse pause",
+        start: "top 50%",
+        end: "+=600",
+        id: "textp1",
+    },
+    y: 0,
+    opacity: 1,
+});
+
+gsap.to(".text3-nld", {
+    scrollTrigger: {
+        trigger: ".text3-nld",
+        toggleActions: "restart pause reverse pause",
+        start: "top 50%",
+        end: "+=600",
+        id: "textp2",
+    },
+    y: 0,
+    opacity: 1,
+});
+
+gsap.to(".text4-nld", {
+    scrollTrigger: {
+        trigger: ".text4-nld",
+        toggleActions: "restart pause reverse pause",
+        start: "top 50%",
+        end: "+=600",
+        id: "textp3",
+    },
+    y: 0,
+    opacity: 1,
+});
+
+gsap.to(".line3", {
+    scrollTrigger: {
+        trigger: ".text3-nld",
+        toggleActions: "restart pause reverse pause",
+        start: "middle 25%",
+        end: "+=1500",
+        id: "line3",
+        scrub: 1,
+    },
+    strokeDashoffset: 0,
+});
+
+gsap.to(".line4", {
+    scrollTrigger: {
+        trigger: ".text3-nld",
+        toggleActions: "restart pause reverse pause",
+        start: "middle 25%",
+        end: "+=1400",
+        id: "line4",
+        scrub: 2,
+    },
+    strokeDashoffset: 0,
+});
+
+gsap.to(".title-pcss", {
+    scrollTrigger: {
+        trigger: ".title-pcss",
+        toggleActions: "restart pause reverse pause",
+        start: "top 75%",
+        end: "top 30%",
+        id: "header",
+    },
+    x: '25%',
+    opacity: 1,
+});
+
+gsap.to(".text1-pcss-bgRed", {
+    scrollTrigger: {
+        trigger: ".text1-pcss-bgRed",
+        toggleActions: "restart pause reverse pause",
+        start: "top 40%",
+        end: "+=200",
+        id: "text",
+    },
+    x: '-100%',
+    opacity: 1,
+});
+
+gsap.to(".pcssimg", {
+    scrollTrigger: {
+        trigger: ".pcssimg",
+        toggleActions: "restart pause reverse pause",
+        start: "top 75%",
+        end: "+=600",
+        id: "img",
+    },
+    // x: '-50%',
+    opacity: 1,
+});
+
+gsap.to(".text2-pcss", {
+    scrollTrigger: {
+        trigger: ".text2-pcss",
+        toggleActions: "restart pause reverse pause",
+        start: "middle 70%",
+        end: "+=400",
+        id: "textp1",
+    },
+    transform: "translateY(200%) translateX(0%)",
+    opacity: 1,
+});
+
+gsap.to(".text3-pcss", {
+    scrollTrigger: {
+        trigger: ".text3-pcss",
+        toggleActions: "restart pause reverse pause",
+        start: "middle 70%",
+        end: "+=400",
+        id: "textp2",
+    },
+    transform: "translateY(300%) translateX(0%)",
+    opacity: 1,
+});
+
+gsap.to(".text4-pcss", {
+    scrollTrigger: {
+        trigger: ".text4-pcss",
+        toggleActions: "restart pause reverse pause",
+        start: "middle 70%",
+        end: "+=400",
+        id: "textp3",
+    },
+    transform: "translateY(400%) translateX(0%)",
+    opacity: 1,
+});
