@@ -1,22 +1,22 @@
 var controller = new ScrollMagic.Controller();
 
 var horizontalSlide = new TimelineMax()
-    .to(".timeline", 1, {x: "-20%"})
-    .to(".timeline", 1, {x: "-40%"})
-    .to(".timeline", 1, {x: "-60%"})
-    .to(".timeline", 1, {x: "-80%"})
+    .to(".timeline", 1, { x: "-20%" })
+    .to(".timeline", 1, { x: "-40%" })
+    .to(".timeline", 1, { x: "-60%" })
+    .to(".timeline", 1, { x: "-80%" })
 
 new ScrollMagic.Scene({
     triggerElement: ".timeline-container",
     triggerHook: 0.2,
     duration: "200%"
 })
-.setPin(".timeline-container")
-.setTween(horizontalSlide)
-.addTo(controller);
+    .setPin(".timeline-container")
+    .setTween(horizontalSlide)
+    .addTo(controller);
 
 ScrollTrigger.defaults({
-    markers: true,
+    markers: false,
     scrub: 1,
 });
 
@@ -159,7 +159,7 @@ gsap.to(".text2-nld", {
     scrollTrigger: {
         trigger: ".text2-nld",
         toggleActions: "restart pause reverse pause",
-        start: "top 50%",
+        start: "top 80%",
         end: "+=600",
         id: "textp1",
     },
@@ -171,11 +171,24 @@ gsap.to(".text3-nld", {
     scrollTrigger: {
         trigger: ".text3-nld",
         toggleActions: "restart pause reverse pause",
-        start: "top 50%",
+        start: "top 70%",
         end: "+=600",
         id: "textp2",
     },
-    y: 0,
+    y: '-100%',
+    opacity: 1,
+});
+
+gsap.to(".quote", {
+    scrollTrigger: {
+        trigger: ".text3-nld",
+        toggleActions: "restart pause reverse pause",
+        start: "top 60%",
+        end: "+=100",
+        id: "quote",
+    },
+    x: '130%',
+    y: '200%',
     opacity: 1,
 });
 
@@ -183,11 +196,11 @@ gsap.to(".text4-nld", {
     scrollTrigger: {
         trigger: ".text4-nld",
         toggleActions: "restart pause reverse pause",
-        start: "top 50%",
+        start: "top 90%",
         end: "+=600",
         id: "textp3",
     },
-    y: 0,
+    y: '-50%',
     opacity: 1,
 });
 
@@ -236,6 +249,7 @@ gsap.to(".text1-pcss-bgRed", {
         id: "text",
     },
     x: '-100%',
+    y: '70%',
     opacity: 1,
 });
 
@@ -255,11 +269,11 @@ gsap.to(".text2-pcss", {
     scrollTrigger: {
         trigger: ".text2-pcss",
         toggleActions: "restart pause reverse pause",
-        start: "middle 70%",
+        start: "middle 90%",
         end: "+=400",
         id: "textp1",
     },
-    transform: "translateY(200%) translateX(0%)",
+    transform: "translateY(400%) translateX(0%)",
     opacity: 1,
 });
 
@@ -267,11 +281,11 @@ gsap.to(".text3-pcss", {
     scrollTrigger: {
         trigger: ".text3-pcss",
         toggleActions: "restart pause reverse pause",
-        start: "middle 70%",
+        start: "middle 90%",
         end: "+=400",
         id: "textp2",
     },
-    transform: "translateY(300%) translateX(0%)",
+    transform: "translateY(650%) translateX(0%)",
     opacity: 1,
 });
 
@@ -279,10 +293,27 @@ gsap.to(".text4-pcss", {
     scrollTrigger: {
         trigger: ".text4-pcss",
         toggleActions: "restart pause reverse pause",
-        start: "middle 70%",
+        start: "top 90%",
         end: "+=400",
         id: "textp3",
     },
-    transform: "translateY(400%) translateX(0%)",
+    transform: "translateY(650%) translateX(0%)",
     opacity: 1,
 });
+
+function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    var timeString = '⇜' + hours + ':' + minutes + ':' + seconds + ' :)⇝';
+
+    document.getElementById('clock').textContent = timeString;
+}
+
+setInterval(updateClock, 1000);
